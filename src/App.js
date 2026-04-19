@@ -79,11 +79,11 @@ const BANK_LOGOS = {
 const BANK_LIST = Object.keys(BANK_LOGOS);
 
 const DEFAULT_SHIPPING = [
-  { id: 'jne_reg', name: 'JNE - REG', price: 10000, logo: 'https://upload.wikimedia.org/wikipedia/commons/9/92/JNE_Express_logo.svg' },
-  { id: 'jnt_reg', name: 'J&T EXPRESS', price: 11000, logo: 'https://upload.wikimedia.org/wikipedia/commons/1/1b/J%26T_Express_logo.svg' },
-  { id: 'anteraja', name: 'ANTERAJA', price: 9000, logo: 'https://upload.wikimedia.org/wikipedia/commons/a/a3/Anteraja_logo.svg' },
-  { id: 'sicepat', name: 'SICEPAT EKSPRES', price: 10000, logo: 'https://upload.wikimedia.org/wikipedia/id/0/04/SiCepat_Ekspres_logo.svg' },
-  { id: 'ninja', name: 'NINJA XPRESS', price: 10500, logo: 'https://upload.wikimedia.org/wikipedia/id/8/8a/Ninja_Xpress_logo.svg' }
+  { id: 'jne_reg', name: 'JNE - REG', price: 10000, logo: '/logo1.png' },
+  { id: 'jnt_reg', name: 'J&T EXPRESS', price: 11000, logo: '/logo2.png' },
+  { id: 'anteraja', name: 'ANTERAJA', price: 9000, logo: '/logo3.png' },
+  { id: 'sicepat', name: 'SICEPAT EKSPRES', price: 10000, logo: '/logo4.png' },
+  { id: 'ninja', name: 'NINJA XPRESS', price: 10500, logo: '/logo5.png' }
 ];
 
 const formatIDR = (amount) => {
