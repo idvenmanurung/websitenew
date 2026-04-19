@@ -42,7 +42,7 @@ import {
 /**
  * ==========================================================================================
  * --- OFFICIAL CATALOG SYSTEM ---
- * VERSION: 48.0.0 (FULL FIREBASE PERSISTENCE - WHITE-GREEN THEME)
+ * VERSION: 49.0.0 (MOBILE LOGIN FIX - FULL FIREBASE PERSISTENCE)
  * ==========================================================================================
  */
 
@@ -267,7 +267,7 @@ function Header({ storeName, cartCount, isAdmin, setView }) {
     <header className="fixed top-0 left-0 w-full z-[100] bg-white border-b border-zinc-100 h-16 flex items-center px-4">
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
         <div className="flex flex-col cursor-pointer group" onClick={() => setView('shop')}>
-          <h1 className="text-sm font-black uppercase tracking-[0.2em] leading-none mb-1 group-hover:text-[#449e48] transition-colors">{storeName || 'SHERLY LUXURY'}</h1>
+          <h1 className="text-sm font-black uppercase tracking-[0.3em] leading-none mb-1 group-hover:text-[#449e48] transition-colors">{storeName || 'SHERLY LUXURY'}</h1>
           <div className="h-[2px] w-full bg-zinc-800 group-hover:bg-[#449e48] transition-colors"></div>
         </div>
 
@@ -422,7 +422,7 @@ function CartView({ items, onRemove, onCheckout }) {
                        <p className="text-sm font-black text-[#449e48]">{formatIDR(item.chosenPrice || item.price)}</p>
                     </div>
                   </div>
-                  <button onClick={()=>onRemove(idx)} className="p-4 text-zinc-200 hover:text-red-500 bg-zinc-50 rounded-2xl border-none cursor-pointer transition-colors"><Trash2 size={20}/></button>
+                  <button onClick={()=>onRemove(idx)} className="p-4 text-zinc-200 hover:text-red-500 bg-zinc-50 rounded-2xl border-none cursor-pointer transition-colors border-none bg-transparent"><Trash2 size={20}/></button>
               </div>
             ))}
             <div className="pt-12 mt-12 border-t border-zinc-100 flex flex-col md:flex-row justify-between items-center gap-10">
@@ -430,7 +430,7 @@ function CartView({ items, onRemove, onCheckout }) {
                    <p className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Total Estimasi</p>
                    <p className="text-5xl font-black text-zinc-900 tracking-tighter">{formatIDR(total)}</p>
                 </div>
-                <button onClick={onCheckout} className="w-full md:w-auto bg-black text-white px-20 py-6 rounded-2xl font-bold uppercase text-[12px] tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 active:scale-95 transition-all">PROCEED TO CHECKOUT <ArrowRight size={20} /></button>
+                <button onClick={onCheckout} className="w-full md:w-auto bg-black text-white px-20 py-6 rounded-2xl font-bold uppercase text-[12px] tracking-[0.2em] shadow-2xl flex items-center justify-center gap-4 active:scale-95 transition-all border-none cursor-pointer">PROCEED TO CHECKOUT <ArrowRight size={20} /></button>
             </div>
           </div>
         )}
@@ -476,7 +476,7 @@ function CheckoutWizard({ cartItems, rekening, shippingMethods, onComplete, onBa
           <input className="w-full p-5 bg-zinc-50 border border-zinc-100 rounded-2xl outline-none font-bold text-[11px] uppercase focus:ring-2 focus:ring-[#449e48]/20" placeholder="Kota" onChange={e=>setShipping({...shipping, city:e.target.value})}/>
           <input className="w-full p-5 bg-zinc-50 border border-zinc-100 rounded-2xl outline-none font-bold text-[11px] uppercase focus:ring-2 focus:ring-[#449e48]/20" placeholder="Nomor WA Aktif" onChange={e=>setShipping({...shipping, phone:e.target.value})}/>
           <textarea className="w-full p-5 bg-zinc-50 border border-zinc-100 rounded-2xl outline-none h-24 font-bold text-[11px] uppercase resize-none focus:ring-2 focus:ring-[#449e48]/20" placeholder="Alamat Lengkap" onChange={e=>setShipping({...shipping, address:e.target.value})}/>
-          <button onClick={()=>setStep(2)} className="w-full bg-[#449e48] text-white py-5 rounded-2xl font-bold uppercase text-[11px] tracking-widest mt-6 shadow-xl">LANJUT KE PENGIRIMAN</button>
+          <button onClick={()=>setStep(2)} className="w-full bg-[#449e48] text-white py-5 rounded-2xl font-bold uppercase text-[11px] tracking-widest mt-6 shadow-xl border-none cursor-pointer">LANJUT KE PENGIRIMAN</button>
         </div>
       )}
 
@@ -495,8 +495,8 @@ function CheckoutWizard({ cartItems, rekening, shippingMethods, onComplete, onBa
             ))}
           </div>
           <div className="flex gap-3 pt-6">
-            <button onClick={()=>setStep(1)} className="px-8 py-5 bg-zinc-100 rounded-2xl font-bold uppercase text-[10px]">Balik</button>
-            <button onClick={()=>setStep(3)} className="flex-1 bg-black text-white py-5 rounded-2xl font-bold uppercase text-[10px]">Lanjut Bayar</button>
+            <button onClick={()=>setStep(1)} className="px-8 py-5 bg-zinc-100 rounded-2xl font-bold uppercase text-[10px] border-none cursor-pointer">Balik</button>
+            <button onClick={()=>setStep(3)} className="flex-1 bg-black text-white py-5 rounded-2xl font-bold uppercase text-[10px] border-none cursor-pointer">Lanjut Bayar</button>
           </div>
         </div>
       )}
@@ -518,7 +518,7 @@ function CheckoutWizard({ cartItems, rekening, shippingMethods, onComplete, onBa
                 ))}
               </div>
 
-              <button onClick={handleOrder} disabled={loading} className="w-full bg-[#449e48] text-white py-5 rounded-2xl font-bold uppercase text-[11px] tracking-[0.2em] shadow-2xl flex items-center justify-center gap-3">
+              <button onClick={handleOrder} disabled={loading} className="w-full bg-[#449e48] text-white py-5 rounded-2xl font-bold uppercase text-[11px] tracking-[0.2em] shadow-2xl flex items-center justify-center gap-3 border-none cursor-pointer">
                 {loading ? <Loader2 className="animate-spin" size={16} /> : 'KONFIRMASI PESANAN SEKARANG'}
               </button>
            </div>
@@ -527,10 +527,10 @@ function CheckoutWizard({ cartItems, rekening, shippingMethods, onComplete, onBa
 
       {step === 4 && (
         <div className="text-center py-12 animate-in zoom-in">
-          <div className="w-20 h-20 bg-[#449e48] text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#449e48]/20"><SuccessIcon size={32}/></div>
+          <div className="w-20 h-20 bg-[#449e48] text-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-[#449e48]/20"><Check size={32}/></div>
           <h3 className="text-2xl font-black uppercase mb-3 tracking-tighter">Terima Kasih</h3>
           <p className="text-[10px] text-zinc-400 font-bold uppercase tracking-widest mb-10 max-w-[200px] mx-auto leading-relaxed">Pesanan Anda telah kami terima dan akan segera diproses oleh tim kami.</p>
-          <button onClick={onComplete} className="px-12 py-4 bg-zinc-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-xl">Kembali ke Koleksi</button>
+          <button onClick={onComplete} className="px-12 py-4 bg-zinc-900 text-white rounded-full font-bold uppercase text-[10px] tracking-[0.2em] shadow-xl border-none cursor-pointer">Kembali ke Koleksi</button>
         </div>
       )}
     </div>
@@ -602,7 +602,7 @@ function AdminDashboard({ storeName, setStoreName, products, orders, rekening, s
             { id: 'shipping', label: 'Tarif Ongkir', icon: Truck },
             { id: 'settings', label: 'Display Toko', icon: Settings }
           ].map(t => (
-            <button key={t.id} onClick={()=>setTab(t.id)} className={`text-left px-5 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-3 ${tab === t.id ? 'bg-zinc-900 text-white shadow-xl' : 'text-zinc-400 hover:bg-white hover:text-zinc-900'}`}>
+            <button key={t.id} onClick={()=>setTab(t.id)} className={`text-left px-5 py-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest transition-all flex items-center gap-3 ${tab === t.id ? 'bg-zinc-900 text-white shadow-xl' : 'text-zinc-400 hover:bg-white hover:text-zinc-900'} border-none cursor-pointer bg-transparent`}>
               <t.icon size={16}/> {t.label}
             </button>
           ))}
@@ -793,7 +793,17 @@ function AdminDashboard({ storeName, setStoreName, products, orders, rekening, s
 
 function AdminLogin({ storeName, onLoginSuccess, onBack, notify }) {
   const [u, setU] = useState(''); const [p, setP] = useState('');
-  const handleL = (e) => { e.preventDefault(); if(u==='admin' && p==='123') { onLoginSuccess(); notify("Akses Diterima", "success"); } else notify("Kredensial Salah", "error"); };
+  const handleL = (e) => { 
+    e.preventDefault(); 
+    // FIXED: Case-insensitive check for mobile convenience
+    if(u.trim().toLowerCase() === 'admin' && p === '123') { 
+      onLoginSuccess(); 
+      notify("Akses Diterima", "success"); 
+    } else {
+      notify("Kredensial Salah", "error"); 
+    }
+  };
+
   return (
     <div className="fixed inset-0 z-[1000] bg-white flex items-center justify-center p-6 animate-in zoom-in">
       <div className="w-full max-w-sm space-y-10">
@@ -803,8 +813,22 @@ function AdminLogin({ storeName, onLoginSuccess, onBack, notify }) {
           <h3 className="text-lg font-black uppercase tracking-[0.3em]">{storeName || 'ADMIN'} PORTAL</h3>
         </div>
         <form onSubmit={handleL} className="space-y-4">
-          <input placeholder="Administrator ID" value={u} onChange={e=>setU(e.target.value)} className="w-full p-5 bg-zinc-50 border-none rounded-2xl text-[11px] font-black uppercase tracking-widest outline-none focus:ring-2 focus:ring-[#449e48]/20"/>
-          <input type="password" placeholder="Secure Pass-Key" value={p} onChange={e=>setP(e.target.value)} className="w-full p-5 bg-zinc-50 border-none rounded-2xl text-[11px] font-black uppercase tracking-widest outline-none focus:ring-2 focus:ring-[#449e48]/20"/>
+          {/* FIXED: Added autoCapitalize="none" and autoCorrect="off" for mobile login convenience */}
+          <input 
+            placeholder="Administrator ID" 
+            value={u} 
+            onChange={e=>setU(e.target.value)} 
+            autoCapitalize="none"
+            autoCorrect="off"
+            className="w-full p-5 bg-zinc-50 border-none rounded-2xl text-[11px] font-black uppercase tracking-widest outline-none focus:ring-2 focus:ring-[#449e48]/20"
+          />
+          <input 
+            type="password" 
+            placeholder="Secure Pass-Key" 
+            value={p} 
+            onChange={e=>setP(e.target.value)} 
+            className="w-full p-5 bg-zinc-50 border-none rounded-2xl text-[11px] font-black uppercase tracking-widest outline-none focus:ring-2 focus:ring-[#449e48]/20"
+          />
           <button type="submit" className="w-full bg-black text-[#449e48] py-5 rounded-2xl font-black uppercase text-[10px] tracking-[0.4em] shadow-2xl transition-all active:scale-95 border-none cursor-pointer">AUTHORIZE</button>
         </form>
       </div>
